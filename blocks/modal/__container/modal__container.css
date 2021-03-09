@@ -1,0 +1,29 @@
+.modal__container {
+  max-width: 430px;
+  min-height: 330px;
+  max-height: 400px;
+  width: 100%;
+  background: white;
+  /* padding: 34px 36px 36px 36px; */
+  box-shadow: 0 0 5px black;
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  /* margin: 34px 36px 36px 36px; */
+  background-color: white;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 520px) {
+  .modal__container {
+    max-width: 282px;
+ }
+}
+
+.modal__container_backgroud {
+  background: none;
+  max-width: 75vw;
+  max-height: 75vh;
+  top: 90px;
+  position: fixed;
+}

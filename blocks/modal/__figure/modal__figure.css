@@ -1,0 +1,8 @@
+.modal__figure {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: auto;
+  height: 75vh;
+  align-self: center;
+}
