@@ -1,7 +1,7 @@
  import { togglePopup } from './index.js'
  import { modalImage, popupImage, popupImageTitle } from './index.js'
 class Card {
-  constructor({data, handleCardClick}, cardSelector) {
+  constructor(data, cardSelector, handleCardClick) {
     this._link = data.link;
     this._name = data.name;
     this._cardSelector = cardSelector;
