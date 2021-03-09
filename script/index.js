@@ -1,7 +1,7 @@
 import FormValidator from './FormValidator.js'
 import initialCards from './initialCards.js'
 import Card from './Card.js';
-import PopupWithImage from './Popup.js';
+//import PopupWithImage from './Popup.js';
 import Section from './Section.js';
 
 const defultConfig = {
@@ -161,7 +161,8 @@ const loadElements = new Section({
     const cardElement = card.generateCard();
     loadElements.addItem(cardElement);
   }
-}, list)
+}, "elements"
+);
 
 loadElements.render();
 
