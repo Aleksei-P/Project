@@ -1,6 +1,6 @@
 # Project 4: Around The U.S.
 ____
-## [Link to the project](https://aleksei-p.github.io/web_project_4/)
+## [Link to the project]( https://aleksei-p.github.io/Project/)
 ____
 ## Main tasks:
 * Adaptive web design.
