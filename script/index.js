@@ -1,8 +1,9 @@
 import FormValidator from './FormValidator.js'
 import initialCards from './initialCards.js'
 import Card from './Card.js';
-//import PopupWithImage from './Popup.js';
+import { PopupWithImage, Popup, PopupWithForm } from './Popup.js';
 import Section from './Section.js';
+import { togglePopup, closeWithEscape } from './utils.js';
 
 const defultConfig = {
   formSelector: ".form",
@@ -53,15 +54,8 @@ const infoInput = document.querySelector('.form__input_type_info');
 const profileName = document.querySelector('.profile__title');
 const profileInfo = document.querySelector('.profile__subtitle');
 
-function togglePopup(popup) {
-    popup.classList.toggle('modal_open');
-  if (popup.classList.contains('modal_open')) {
-    document.addEventListener('keydown', closeWithEscape);
-  }
-  else {
-    document.removeEventListener('keydown', closeWithEscape);
-  }
-};
+
+
 
 //profile form submit
 
@@ -73,12 +67,14 @@ form.addEventListener('submit', (evt) => {
 })
 
 // open Profile and reset unsaved inputs
+/*
 editButton.addEventListener('click', () => {
   togglePopup(modalEdit);
   nameInput.value = profileName.textContent;
   infoInput.value = profileInfo.textContent;
   editFormValidator.resetValidationError();
 });
+*/
 
 closeButton.addEventListener('click', () => {
   togglePopup(modalEdit);});
@@ -96,12 +92,6 @@ addButton.addEventListener('click', () => {togglePopup(modalAdd);
 closeAddButton.addEventListener('click', () => {
   togglePopup(modalAdd);
 });
-
-function closeWithEscape (evt) {
-  if (evt.key === 'Escape') {
-    togglePopup(document.querySelector('.modal_open'));
-  }
-};
 
 modalEdit.addEventListener('click', function (evt) {
   if (evt.target === modalEdit) {
@@ -121,38 +111,11 @@ modalImage.addEventListener('click', function (evt) {
   }
 });
 
-/*
-initialCards,js
-*/
-
-//create and load cards
-
-/*
-function createCard(data) {
-  const templateSelector = ".elements";
-  const card = new Card(data, templateSelector);
-  return card.generateCard();
-}
-function loadCard(data) {
-  const cardGen = createCard(data);
-  list.prepend(cardGen);
-}
-
-
-initialCards.forEach(data => {
-  loadCard(data);
-});
-*/
-
   formAdd.addEventListener('submit', (evt) => {
     evt.preventDefault();
     loadCard({name: imageNewTitle.value, link: imageNewLink.value});
     togglePopup(modalAdd);
   });
-/*
-const imageModal = new PopupWithImage('.modal__popup-image');
-imageModal.setEventListeners();
-*/
 
 const loadElements = new Section({
   items: initialCards,
@@ -166,8 +129,13 @@ const loadElements = new Section({
 
 loadElements.render();
 
+const popupImageWindow = new PopupWithImage('.modal__popup-image');
+popupImageWindow.addEventListener();
 
-export  { togglePopup };
+const popupEditWindow = new PopupWithForm('.modal_edit');
+popupEditWindow.setEventListener();
+
+//export  { togglePopup };
 export { modalImage, popupImage, popupImageTitle };
 
 

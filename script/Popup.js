@@ -37,13 +37,51 @@ class PopupWithImage extends Popup {
     this._popupElement.querySelector('.modal__popup-image').src = name;
     super.open();
   }
+  setEventListeners() {
+    super.setEventListeners();
+  }
 };
 
+class PopupWithForm extends Popup {
+  constructor(popupSelector, submitHandler) {
+    super(popupSelector);
+    this._submitHandler = submitHandler;
+  }
 
+  _getInputValues() {
+    this._inputs = this._popupElement.querySelector('.form__input');
+    this._values = {};
 
-// const PopupWithForm = new Popup('');
+    inputs.forEach((input) => {
+      values[input.name] = input.value;
+    })
+    return this._values;
+  }
 
-export default { Popup, PopupWithImage };
+  setEventListeners() {
+    super.setEventListeners();
+    this._form = this._popupElement.querySelector('.form');
+    this._form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      this._submitHandler();
+    } )
+  }
+
+  close() {
+    super.close();
+    this._form.reset();
+  }
+}
+/*
+  editButton.addEventListener('click', () => {
+    togglePopup(modalEdit);
+    nameInput.value = profileName.textContent;
+    infoInput.value = profileInfo.textContent;
+    editFormValidator.resetValidationError();
+  });
+*/
+
+export { Popup, PopupWithImage, PopupWithForm };
 // export default PopupWithImage;
 
 

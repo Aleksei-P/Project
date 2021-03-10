@@ -1,5 +1,5 @@
- import { togglePopup } from './index.js'
- import { modalImage, popupImage, popupImageTitle } from './index.js'
+import { togglePopup } from './utils.js'
+import { modalImage, popupImage, popupImageTitle } from './index.js'
 class Card {
   constructor(data, cardSelector, handleCardClick) {
     this._link = data.link;
@@ -27,6 +27,12 @@ class Card {
 
     this._cardImage.addEventListener('click', () => this._handleCardClick(this._name, this._link));
 
+    this._cardImage.addEventListener('click', (e) => {
+      togglePopup(modalImage);
+      popupImage.src = this._link;
+      popupImageTitle.textContent = this._name;
+    })
+
   }
 
   generateCard() {
@@ -40,17 +46,5 @@ class Card {
     return this._card;
   }
 }
-
-
-
-
-// new Card(
-//   {
-//     data: {...},
-//     handleCardClick: (name, link) => {
-//       imageModal.open(name, link)
-//     }
-//   }
-//   )
 
   export default Card;
