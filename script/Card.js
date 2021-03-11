@@ -25,12 +25,13 @@ class Card {
 
     })
 
-    this._cardImage.addEventListener('click', () => this._handleCardClick(this._name, this._link));
 
-    this._cardImage.addEventListener('click', (e) => {
-      togglePopup(modalImage);
+    this._cardImage.addEventListener('click', () => {
       popupImage.src = this._link;
       popupImageTitle.textContent = this._name;
+      togglePopup(modalImage);
+
+      this._cardImage.addEventListener('click', () => this._handleCardClick());
     })
 
   }

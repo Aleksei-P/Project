@@ -130,10 +130,10 @@ const loadElements = new Section({
 loadElements.render();
 
 const popupImageWindow = new PopupWithImage('.modal__popup-image');
-popupImageWindow.addEventListener();
+popupImageWindow.setEventListener();
 
 const popupEditWindow = new PopupWithForm('.modal_edit');
-popupEditWindow.setEventListener();
+popupEditWindow.setEventListener('click', () => );
 
 //export  { togglePopup };
 export { modalImage, popupImage, popupImageTitle };
