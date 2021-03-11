@@ -133,7 +133,7 @@ const popupImageWindow = new PopupWithImage('.modal__popup-image');
 popupImageWindow.setEventListener();
 
 const popupEditWindow = new PopupWithForm('.modal_edit');
-popupEditWindow.setEventListener('click', () => );
+//popupEditWindow.setEventListener('click', () => );
 
 //export  { togglePopup };
 export { modalImage, popupImage, popupImageTitle };
